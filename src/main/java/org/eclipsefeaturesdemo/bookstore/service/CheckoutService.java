@@ -1,7 +1,7 @@
 package org.eclipsefeaturesdemo.bookstore.service;
 
-import org.eclipsefeaturesdemo.bookstore.Book;
-import org.eclipsefeaturesdemo.bookstore.CheckoutResult;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.CheckoutResult;
 import org.eclipsefeaturesdemo.bookstore.exception.InsufficientStockException;
 
 public class CheckoutService {

@@ -1,4 +1,4 @@
-package org.eclipsefeaturesdemo.bookstore;
+package org.eclipsefeaturesdemo.bookstore.domain;
 
 import java.util.ArrayList;
 import java.util.Comparator;

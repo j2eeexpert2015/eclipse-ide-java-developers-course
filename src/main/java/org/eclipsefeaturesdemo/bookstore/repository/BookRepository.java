@@ -3,7 +3,7 @@ package org.eclipsefeaturesdemo.bookstore.repository;
 import java.util.List;
 import java.util.Optional;
 
-import org.eclipsefeaturesdemo.bookstore.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
 
 public interface BookRepository {
 

@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import org.eclipsefeaturesdemo.bookstore.BookCatalog;
-
-import com.learningfromexperience.bookstore.discount.PremiumDiscountStrategy;
-import com.learningfromexperience.bookstore.exception.BookNotFoundException;
-import com.learningfromexperience.bookstore.service.BookSearchService;
-import com.learningfromexperience.bookstore.service.CheckoutService;
-import com.learningfromexperience.bookstore.service.PricingService;
+import org.eclipsefeaturesdemo.bookstore.discount.PremiumDiscountStrategy;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.BookCatalog;
+import org.eclipsefeaturesdemo.bookstore.exception.BookNotFoundException;
+import org.eclipsefeaturesdemo.bookstore.service.BookSearchService;
+import org.eclipsefeaturesdemo.bookstore.service.CheckoutService;
+import org.eclipsefeaturesdemo.bookstore.service.PricingService;
 
 public final class AdvancedDebugScenarios {
 

@@ -2,7 +2,7 @@ package org.eclipsefeaturesdemo.bookstore.service;
 
 import java.util.List;
 
-import org.eclipsefeaturesdemo.bookstore.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
 import org.eclipsefeaturesdemo.bookstore.exception.BookNotFoundException;
 import org.eclipsefeaturesdemo.bookstore.repository.BookRepository;
 

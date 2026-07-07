@@ -1,5 +1,7 @@
-package org.eclipsefeaturesdemo.bookstore;
+package org.eclipsefeaturesdemo.app;
 
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.BookCatalog;
 import org.eclipsefeaturesdemo.bookstore.export.BookJsonExporter;
 
 public final class CatalogReportApplication {

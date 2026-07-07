@@ -1,7 +1,7 @@
 package org.eclipsefeaturesdemo.bookstore.service;
 
-import org.eclipsefeaturesdemo.bookstore.Book;
 import org.eclipsefeaturesdemo.bookstore.discount.DiscountStrategy;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
 
 public class PricingService {
 

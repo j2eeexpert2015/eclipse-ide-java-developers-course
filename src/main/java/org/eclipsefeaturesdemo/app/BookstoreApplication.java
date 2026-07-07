@@ -1,6 +1,9 @@
-package org.eclipsefeaturesdemo.bookstore;
+package org.eclipsefeaturesdemo.app;
 
 import org.eclipsefeaturesdemo.bookstore.discount.PremiumDiscountStrategy;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.BookCatalog;
+import org.eclipsefeaturesdemo.bookstore.domain.CheckoutResult;
 import org.eclipsefeaturesdemo.bookstore.service.BookSearchService;
 import org.eclipsefeaturesdemo.bookstore.service.CheckoutService;
 import org.eclipsefeaturesdemo.bookstore.service.PricingService;

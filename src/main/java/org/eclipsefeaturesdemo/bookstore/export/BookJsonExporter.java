@@ -2,7 +2,7 @@ package org.eclipsefeaturesdemo.bookstore.export;
 
 import java.util.List;
 
-import org.eclipsefeaturesdemo.bookstore.Book;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
