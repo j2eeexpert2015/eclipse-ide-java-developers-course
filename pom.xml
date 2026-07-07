@@ -1,11 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.eclipsefeaturesdemo</groupId>
-  <artifactId>eclipse-ide-java-developers-course</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.eclipsefeaturesdemo</groupId>
+    <artifactId>eclipse-ide-java-developers-course</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>25</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <jackson.version>2.21.2</jackson.version>
         <junit.version>5.13.4</junit.version>
     </properties>
@@ -46,7 +50,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.learningfromexperience.bookstore.BookstoreApplication</mainClass>
+                            <mainClass>org.eclipsefeaturesdemo.bookstore.app.BookstoreApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -57,7 +61,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.6.3</version>
                 <configuration>
-                    <mainClass>com.learningfromexperience.bookstore.BookstoreApplication</mainClass>
+                    <mainClass>org.eclipsefeaturesdemo.bookstore.app.BookstoreApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>

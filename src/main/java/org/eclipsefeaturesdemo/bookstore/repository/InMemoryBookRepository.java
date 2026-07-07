@@ -1,35 +1,33 @@
-package org.eclipsefeaturesdemo.bookstore.domain;
+package org.eclipsefeaturesdemo.bookstore.repository;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-import org.eclipsefeaturesdemo.bookstore.repository.BookRepository;
+import org.eclipsefeaturesdemo.bookstore.domain.Book;
 
-
-public class BookCatalog implements BookRepository {
+public class InMemoryBookRepository implements BookRepository {
 
     private final List<Book> books = new ArrayList<>();
 
+    @Override
     public void add(Book book) {
         if (book == null) {
             throw new IllegalArgumentException("Book cannot be null");
         }
         if (findByIsbn(book.getIsbn()).isPresent()) {
-            throw new IllegalArgumentException("A book with ISBN %s already exists".formatted(book.getIsbn()));
+            throw new IllegalArgumentException(
+                    "A book with ISBN %s already exists".formatted(book.getIsbn()));
         }
+
         books.add(book);
     }
 
     @Override
     public Optional<Book> findByIsbn(String isbn) {
-        for (Book book : books) {
-            if (book.matchesIsbn(isbn)) {
-                return Optional.of(book);
-            }
-        }
-        return Optional.empty();
+        return books.stream()
+                .filter(book -> book.matchesIsbn(isbn))
+                .findFirst();
     }
 
     @Override
@@ -42,11 +40,5 @@ public class BookCatalog implements BookRepository {
         return books.stream()
                 .filter(Book::isAvailable)
                 .toList();
-    }
-
-    public List<Book> getBooksSortedByTitle() {
-        List<Book> sortedBooks = new ArrayList<>(books);
-        sortedBooks.sort(Comparator.comparing(Book::getTitle));
-        return List.copyOf(sortedBooks);
     }
 }

@@ -4,8 +4,6 @@ import java.util.Objects;
 
 import org.eclipsefeaturesdemo.bookstore.exception.InsufficientStockException;
 
-
-
 public class Book {
 
     private final String isbn;
@@ -49,12 +47,16 @@ public class Book {
         if (!hasEnoughStock(requestedQuantity)) {
             throw new InsufficientStockException(isbn, requestedQuantity, stockQuantity);
         }
+
         stockQuantity -= requestedQuantity;
     }
 
-    public String getFormattedSummary() {
-        return "%s by %s | ISBN: %s | Price: $%.2f | Stock: %d"
-                .formatted(title, author, isbn, price, stockQuantity);
+    public void increaseStock(int quantity) {
+        if (quantity <= 0) {
+            throw new IllegalArgumentException("Quantity must be greater than zero");
+        }
+
+        stockQuantity += quantity;
     }
 
     public String getIsbn() {
@@ -77,16 +79,10 @@ public class Book {
         return stockQuantity;
     }
 
-    public void setStockQuantity(int stockQuantity) {
-        if (stockQuantity < 0) {
-            throw new IllegalArgumentException("Stock quantity cannot be negative");
-        }
-        this.stockQuantity = stockQuantity;
-    }
-
     @Override
     public String toString() {
-        return getFormattedSummary();
+        return "Book[isbn=%s, title=%s, author=%s, price=%.2f, stockQuantity=%d]"
+                .formatted(isbn, title, author, price, stockQuantity);
     }
 
     @Override

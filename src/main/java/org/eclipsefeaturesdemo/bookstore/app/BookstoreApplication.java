@@ -2,8 +2,9 @@ package org.eclipsefeaturesdemo.bookstore.app;
 
 import org.eclipsefeaturesdemo.bookstore.discount.PremiumDiscountStrategy;
 import org.eclipsefeaturesdemo.bookstore.domain.Book;
-import org.eclipsefeaturesdemo.bookstore.domain.BookCatalog;
 import org.eclipsefeaturesdemo.bookstore.domain.CheckoutResult;
+import org.eclipsefeaturesdemo.bookstore.repository.BookRepository;
+import org.eclipsefeaturesdemo.bookstore.repository.InMemoryBookRepository;
 import org.eclipsefeaturesdemo.bookstore.service.BookSearchService;
 import org.eclipsefeaturesdemo.bookstore.service.CheckoutService;
 import org.eclipsefeaturesdemo.bookstore.service.PricingService;
@@ -14,7 +15,7 @@ public final class BookstoreApplication {
     private static final int DEFAULT_QUANTITY = 2;
 
     private BookstoreApplication() {
-}
+    }
 
     public static void main(String[] args) {
         String isbn = args.length > 0 ? args[0] : DEFAULT_ISBN;
@@ -24,8 +25,8 @@ public final class BookstoreApplication {
     }
 
     private static void runCheckoutDemo(String isbn, int quantity) {
-        BookCatalog catalog = createSampleCatalog();
-        BookSearchService bookSearchService = new BookSearchService(catalog);
+        BookRepository bookRepository = createSampleRepository();
+        BookSearchService bookSearchService = new BookSearchService(bookRepository);
         PricingService pricingService = new PricingService(new PremiumDiscountStrategy());
         CheckoutService checkoutService = new CheckoutService(bookSearchService, pricingService);
 
@@ -33,12 +34,12 @@ public final class BookstoreApplication {
         printCheckoutResult(result);
     }
 
-    private static BookCatalog createSampleCatalog() {
-        BookCatalog catalog = new BookCatalog();
-        catalog.add(new Book("9780134685991", "Effective Java", "Joshua Bloch", 50.00, 4));
-        catalog.add(new Book("9781617294945", "Spring in Action", "Craig Walls", 45.00, 3));
-        catalog.add(new Book("9781492078005", "Java Performance", "Scott Oaks", 55.00, 0));
-        return catalog;
+    private static BookRepository createSampleRepository() {
+        BookRepository bookRepository = new InMemoryBookRepository();
+        bookRepository.add(new Book("9780134685991", "Effective Java", "Joshua Bloch", 50.00, 4));
+        bookRepository.add(new Book("9781617294945", "Spring in Action", "Craig Walls", 45.00, 3));
+        bookRepository.add(new Book("9781492078005", "Java Performance", "Scott Oaks", 55.00, 0));
+        return bookRepository;
     }
 
     private static void printCheckoutResult(CheckoutResult result) {
@@ -59,7 +60,9 @@ public final class BookstoreApplication {
             }
             return quantity;
         } catch (NumberFormatException exception) {
-            throw new IllegalArgumentException("Quantity must be a whole number: " + value, exception);
+            throw new IllegalArgumentException(
+                    "Quantity must be a whole number: " + value,
+                    exception);
         }
     }
 }
