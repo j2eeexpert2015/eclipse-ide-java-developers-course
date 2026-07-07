@@ -1,4 +1,4 @@
-package org.eclipsefeaturesdemo.app;
+package org.eclipsefeaturesdemo.bookstore.app;
 
 import org.eclipsefeaturesdemo.bookstore.domain.Book;
 import org.eclipsefeaturesdemo.bookstore.domain.BookCatalog;

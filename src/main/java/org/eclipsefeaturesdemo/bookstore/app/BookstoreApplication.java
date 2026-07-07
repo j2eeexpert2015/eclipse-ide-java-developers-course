@@ -1,4 +1,4 @@
-package org.eclipsefeaturesdemo.app;
+package org.eclipsefeaturesdemo.bookstore.app;
 
 import org.eclipsefeaturesdemo.bookstore.discount.PremiumDiscountStrategy;
 import org.eclipsefeaturesdemo.bookstore.domain.Book;
@@ -14,7 +14,7 @@ public final class BookstoreApplication {
     private static final int DEFAULT_QUANTITY = 2;
 
     private BookstoreApplication() {
-    }
+}
 
     public static void main(String[] args) {
         String isbn = args.length > 0 ? args[0] : DEFAULT_ISBN;
